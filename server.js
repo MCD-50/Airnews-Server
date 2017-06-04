@@ -37,7 +37,6 @@ app.post('/scrape', function (req, res) {
 
 	console.log(req.body);
 
-
 	//build query
 	const pagenum = "?pagenum=" + body.page_number || "?pagenum=1";
 	const action = ACTION;
@@ -61,7 +60,7 @@ app.post('/scrape', function (req, res) {
 				const author = $html(this).children('div.title').next().text();
 				const published_at =  $html(this).children('div.summary').prev().text();
 				const description = $html(this).children('div.summary').children().text();
-				const url = $html(this).children('div.title').children('a.healine').attr('href')
+				const url = $html(this).children('div.title').next().attr('href')
 				items.push({title : title, author : author, 
 					published_at : published_at, 
 					description : description,
