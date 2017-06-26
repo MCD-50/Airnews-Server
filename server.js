@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const request = require('request');
 const cheerio = require('cheerio');
 const bodyParser = require('body-parser');
@@ -19,6 +20,8 @@ const language_id = {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.listen(process.env.PORT || 2000, () => {
 	console.log('Server started.');
