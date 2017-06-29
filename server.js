@@ -41,7 +41,7 @@ app.post('/scrape', function (req, res) {
 	let search_string = "&search_string=" + body.search_string || "top news";
 	const selected_country = body.selected_country || "india";
 	if (!search_string.includes(selected_country)) {
-		search_string = search_string + selected_country;
+		search_string = search_string + "-"  + selected_country;
 	}
 	const language_id = "&language_id=" + get_lang_id(body.language_name)
 
