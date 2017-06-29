@@ -23,9 +23,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.listen(process.env.PORT || 2000, () => {
-	console.log('Server started.');
-});
+app.listen(process.env.PORT || 2000);
 
 app.get('/', (req, res) => {
 	res.json({
@@ -37,13 +35,10 @@ app.get('/', (req, res) => {
 app.post('/scrape', function (req, res) {
 	//All the web scraping magic will happen here
 	const body = req.body;
-
-	console.log(req.body);
-
 	//build query
 	const pagenum = "?pagenum=" + body.page_number || "?pagenum=1";
 	const action = ACTION;
-	const search_string = "&search_string=" + body.search_string || "&search_string=" + body.selected_country;
+	const search_string = "&search_string=" + body.search_string;
 	const language_id = "&language_id=" + get_lang_id(body.language_name)
 
 	//request query
