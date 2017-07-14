@@ -8,6 +8,10 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  engines:{
+    "node":"^6.11.1",
+    "npm":"^3.10.10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcd-50/airnews-server.git"
